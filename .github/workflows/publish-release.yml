@@ -1,8 +1,8 @@
 name: Publish Library to Repository
+
 on:
-  push:
-    branches:
-      - sorakh-7.0.1
+  release:
+    types: [created]
 
 jobs:
   publish-jar:
