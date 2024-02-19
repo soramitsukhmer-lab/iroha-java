@@ -58,8 +58,9 @@ publishing {
             name = 'GitHubPackages'
             url = 'https://maven.pkg.github.com/VandyTheCoder/iroha-java'
             credentials {
-                username = System.getenv("GIT_PUB_USER")
-                password = System.getenv("GIT_TOKEN")
+                credentials {
+                    username = project.findProperty("gpr.username") as String? ?: System.getenv("GPR_USERNAME")
+                    password = project.findProperty("gpr.password") as String? ?: System.getenv("GPR_PASSWORD")
             }
         }
     }
