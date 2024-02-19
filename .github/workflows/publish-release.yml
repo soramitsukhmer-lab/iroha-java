@@ -24,7 +24,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
   
       - name: Build with Gradle
-        run: ./gradlew assemble
+        run: ./gradlew assemble -Pversion=${{ github.event.release.tag_name }}
   
       # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
       # the publishing section of your build.gradle
