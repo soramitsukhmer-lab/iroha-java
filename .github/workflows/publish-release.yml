@@ -1,0 +1,25 @@
+name: Publish Library to Repository
+on:
+  push:
+    branches:
+      - sorakh-7.0.1
+
+jobs:
+  publish-jar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "GIT: Checkout Action Version"
+        uses: actions/checkout@v3
+
+      - name: "JAVA: Set Up JAVA Version 8"
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      - name: "GRADLE: Publish Library"
+        run: ./gradlew publish
+        env:
+          GIT_PUB_USER: ${{ vars.PUB_JAR_USERNAME }}
+          GIT_TOKEN: ${{ secrets.PUB_JAR_TOKEN }}
