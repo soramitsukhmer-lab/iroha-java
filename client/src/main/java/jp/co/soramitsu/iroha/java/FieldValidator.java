@@ -205,8 +205,8 @@ public class FieldValidator {
     }
 
     int len = description.length();
-    if (len > 64) {
-      throw new ValidationException(DESCRIPTION, "Max length is 64, given string length is '%d'",
+    if (len > 102400) {
+      throw new ValidationException(DESCRIPTION, "Max length is 102400, given string length is '%d'",
           len);
     }
   }

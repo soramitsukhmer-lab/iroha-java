@@ -153,7 +153,7 @@ class FieldValidatorTest extends Specification {
         TIMESTAMP     | -5 // can't be negative
         DOMAIN        | "" // empty
         DOMAIN        | "bogdan!com" // invalid domain
-        DESCRIPTION   | "1" * 100 // too long
+        DESCRIPTION   | "1" * 102401 // too long
 
     }
 }
